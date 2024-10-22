@@ -1,5 +1,5 @@
-module github.com/lukeroth/gdal
+module github.com/zcobell/gdal
 
 go 1.15
 
-require github.com/stretchr/testify v1.7.2 // indirect
+require github.com/stretchr/testify v1.7.2

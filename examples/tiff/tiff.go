@@ -4,7 +4,7 @@ import (
 	"flag"
 	"fmt"
 
-	"github.com/lukeroth/gdal"
+	"github.com/zcobell/gdal"
 )
 
 func main() {
