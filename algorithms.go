@@ -308,8 +308,7 @@ func (src RasterBand) ContourGenerate(
 	if len(fixedLevels) > 0 {
 		fixedLevels_p = (*C.double)(unsafe.Pointer(&fixedLevels[0]))
 	}
-
-	return CPLErr(C.GDALContourGenerate(
+	cErr := C.GDALContourGenerate(
 		src.cval,
 		C.double(interval),
 		C.double(base),
@@ -322,7 +321,8 @@ func (src RasterBand) ContourGenerate(
 		C.int(elevationFieldIndex),
 		C.goGDALProgressFuncProxyB(),
 		unsafe.Pointer(arg),
-	)).Err()
+	)
+	return CPLErrContainer{ErrVal: cErr}.Err()
 }
 
 /* --------------------------------------------- */
